@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.autoClosingBrackets": false,
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.renderIndentGuides": true,
+    "window.title": "${dirty}${activeEditorLong}",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Default Light+",
+    "update.channel": "none",
+    "[cpp]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
+    },
+    "C_Cpp.intelliSenseEngine": "Default",
+    "C_Cpp.intelliSenseEngineFallback": "Disabled"
+}
