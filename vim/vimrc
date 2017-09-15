@@ -21,6 +21,7 @@ set cindent
 set laststatus=2 "always display a status line
 set noundofile
 set mouse=
+set clipboard=unnamed
 
 " Kick vim into realizing 256 color terms.
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
@@ -127,6 +128,7 @@ map q <Nop>
 "au BufNewFile,BufRead *.xsc			setf lua
 "au BufNewFile,BufRead *.rgw,*.rgp,*.rgx setf yaml
 au BufNewFile,BufRead *.h,*.hpp,*.cpp,*.c set ts=2 sw=2
+au BufNewFile,BufRead *.rb,*.pp, set ts=2 sw=2
 
 augroup Binary
     au!
