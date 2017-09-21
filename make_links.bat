@@ -1,4 +1,5 @@
 @echo off
+setlocal EnableExtensions
 
 rem ln -s ~/.dotfiles/bashrc ~/.bashrc
 rem ln -s ~/.dotfiles/bash_profile ~/.bash_profile
@@ -7,8 +8,15 @@ rem ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 rem ln -s ~/.dotfiles/gitexcludes ~/.gitexcludes
 rem ln -s ~/.dotfiles/vscode_user_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
-if not exist %USERPROFILE%\.vim junction %USERPROFILE%\.vim %USERPROFILE%\.dotfiles\vim
-if not exist %USERPROFILE%\vimfiles junction %USERPROFILE%\vimfiles %USERPROFILE%\.dotfiles\vim
+set JUNCTION=%~dp0junction.exe
+
+if exist %USERPROFILE$\.vim goto HAVE_DOT_VIM
+%JUNCTION% %USERPROFILE%\.vim %USERPROFILE%\.dotfiles\vim
+:HAVE_DOT_VIM
+
+if exist %USERPROFILE%\vimfiles goto HAVE_VIMFILES
+%JUNCTION% %USERPROFILE%\vimfiles %USERPROFILE%\.dotfiles\vim
+:HAVE_VIMFILES
 
 rem mintty is less than stellar and ignores the config file unless it has unix line endings.
 rem git is a pain in the ass and insists on fucking with the line endings so just copy the 
@@ -28,7 +36,7 @@ mkdir %USERPROFILE%\.config\
 :HAVE_CONFIG
 
 if exist %USERPROFILE%\.config\git goto SKIP_CONFIG_GIT
-junction %USERPROFILE%\.config\git %USERPROFILE%\.dotfiles\config\git
+%JUNCTION% %USERPROFILE%\.config\git %USERPROFILE%\.dotfiles\config\git
 goto HAVE_CONFIG_GIT
 :SKIP_CONFIG_GIT
 echo %USERPROFILE%\.config\git already exists.  Skipped.
