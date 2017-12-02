@@ -1,5 +1,37 @@
-source $VIMRUNTIME/vimrc_example.vim
-set exrc
+set nocompatible    " be iMproved, required for Vundle
+filetype off        " required for Vundle
+
+" Set the runtime path to include Vundle and initialize.
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'rhysd/vim-clang-format'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'rodjek/vim-puppet'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/a.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 set secure
 set autoread
 set autowrite
@@ -30,52 +62,6 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
     set t_Co=256
 endif
 
-" specify directory for plugins
-call plug#begin('~/.vim/plugged')
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Plug 'junegunn/vim-easy-align'
-
-Plug 'https://github.com/rhysd/vim-clang-format.git'
-Plug 'https://github.com/jlanzarotta/bufexplorer.git'
-Plug 'https://github.com/kien/ctrlp.vim.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'
-Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-"Plug 'https://github.com/rodjek/vim-puppet.git'
-Plug 'https://github.com/flazz/vim-colorschemes.git'
-Plug 'https://github.com/vim-scripts/a.vim.git'
-
-" Configuration headache.  Not worth the time?
-" Disable this plugin for now.
-" Plug 'https://github.com/arakashic/chromatica.nvim.git'
-
-" Any valid git URL is allowed
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-" Plug '~/my-prototype-plugin'
-
-" initialize plugins.
-call plug#end()
 
 " TODO: Add test for platform and select correct line.
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
