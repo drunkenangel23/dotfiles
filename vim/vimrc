@@ -2,6 +2,7 @@ source $VIMRUNTIME/vimrc_example.vim
 set exrc
 set secure
 set autoread
+set autowrite
 set tabstop=4
 set shiftwidth=4
 set nobackup
@@ -22,6 +23,7 @@ set laststatus=2 "always display a status line
 set noundofile
 set mouse=
 set clipboard=unnamed
+set number
 
 " Kick vim into realizing 256 color terms.
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
@@ -38,7 +40,10 @@ Plug 'https://github.com/rhysd/vim-clang-format.git'
 Plug 'https://github.com/jlanzarotta/bufexplorer.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'https://github.com/vim-airline/vim-airline.git'
-Plug 'https://github.com/rodjek/vim-puppet.git'
+Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+"Plug 'https://github.com/rodjek/vim-puppet.git'
+Plug 'https://github.com/flazz/vim-colorschemes.git'
+Plug 'https://github.com/vim-scripts/a.vim.git'
 
 " Configuration headache.  Not worth the time?
 " Disable this plugin for now.
@@ -72,6 +77,15 @@ Plug 'https://github.com/rodjek/vim-puppet.git'
 " initialize plugins.
 call plug#end()
 
+" TODO: Add test for platform and select correct line.
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe " Windows
+
+"A
+" Open corresponding header/src
+map ,h :A<CR>
+
+
 "Clang-Format
 " use .clang-format file
 let g:clang_format#detect_style_file = 1
@@ -86,12 +100,23 @@ let g:clang_format#auto_format = 1
 " let g:chromatica#responsive_mode=1
 " let g:chromatica#highlight_feature_level=1
 
+"Airline
+let g:airline_theme='papercolor'
+
 
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|o|d)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
+
+let g:ctrlp_root_markers = ['meson.build']
+
+"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+
+autocmd BufRead,BufNewFile meson.build setfiletype meson
+autocmd BufRead,BufNewFile meson_options.txt set filetype=mesonopt
 
 "Emulate VisualStudio shift operations.
 vmap <Tab> >gv
@@ -119,7 +144,7 @@ map ,n :cn<CR>
 map q <Nop>
 
 
-"set makeprg=jam
+set makeprg=mbuild
 "map ,m :!make 2>_mkerrors<CR>:cf _mkerrors<CR>
 
 :let g:netrw_sort_sequence='[\/]$,[^\/]$,'
