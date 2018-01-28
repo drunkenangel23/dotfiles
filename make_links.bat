@@ -49,6 +49,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git Vundle.vim
 popd
 :HAVE_VUNDLE
 
+rem ::Wing IDE
+robocopy "%~dp0config\Wing IDE 5" "%APPDATA%\Wing IDE 5" /S
 
 
 
