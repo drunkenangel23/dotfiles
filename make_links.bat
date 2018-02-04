@@ -42,15 +42,10 @@ goto HAVE_CONFIG_GIT
 echo %USERPROFILE%\.config\git already exists.  Skipped.
 :HAVE_CONFIG_GIT
 
-if exist %USERPROFILE%\.dotfiles\vim\bundle\Vundle.vim\.git goto HAVE_VUNDLE
-mkdir %USERPROFILE%\.dotfiles\vim\bundle >NUL 2>&1
-pushd %USERPROFILE%\.dotfiles\vim\bundle
-git clone https://github.com/VundleVim/Vundle.vim.git Vundle.vim
-popd
-:HAVE_VUNDLE
-
 rem ::Wing IDE
 robocopy "%~dp0config\Wing IDE 5" "%APPDATA%\Wing IDE 5" /S
+
+pause
 
 
 
