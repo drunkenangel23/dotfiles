@@ -56,9 +56,12 @@ endif
 " confusing.
 set nrformats-=octal
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries.
 if has('win32')
+  " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries.
   set guioptions-=t
+endif
+
+if has('win32')
 endif
 
 " Don't use Ex mode, use Q for formatting.
@@ -150,6 +153,8 @@ set number
 set encoding=utf-8
 "set hidden
 
+
+
 " Kick vim into realizing 256 color terms.
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
@@ -170,8 +175,11 @@ map ,h :A<CR>
 let g:clang_format#detect_style_file = 1
 " format the current buffer on save.
 let g:clang_format#auto_format = 1
-"map <C-R><C-F> :ClangFormat<CR>
-"imap <C-R><C-F> :ClangFormat<CR>
+map <C-R><C-F> :ClangFormat<CR>
+imap <C-R><C-F> :ClangFormat<CR>
+"
+"map <C-R><C-F> :pyf $HOME/vimfiles/python/clang-format.py<cr>
+"imap <C-R><C-F>:pyf $HOME/vimfiles/python/clang-format.py<cr>
 
 "Chromatica
 " let g:chromatica#libclang_path=glob("~/.local/lib/llvm")
@@ -199,7 +207,7 @@ let g:localrc_filename = 'vim.proj'
 
 autocmd BufNewFile,BufRead meson.build setfiletype meson
 autocmd BufNewFile,BufRead meson_options.txt set filetype=mesonopt
-autocmd BufNewFile,BufRead *.h,*.hpp,*.cpp,*.c set ts=2 sw=2
+autocmd BufNewFile,BufRead *.h,*.hpp,*.cpp,*.c set ts=4 sw=4
 autocmd BufNewFile,BufRead *.rb,*.pp set ts=2 sw=2
 autocmd BufNewFile,BufRead *.bdgcfg setfiletype dosini
 autocmd BufNewFile,BufRead .gide,*.gide setfiletype yaml
