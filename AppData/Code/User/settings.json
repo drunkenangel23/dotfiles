@@ -1,0 +1,34 @@
+{
+    "git.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "window.smoothScrollingWorkaround": true,
+    "window.titleBarStyle": "native",
+    "editor.autoClosingBrackets": "never",
+    "editor.minimap.enabled": false,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "vim.useSystemClipboard": true,
+    "editor.formatOnSave": true,
+    "[cpp]": {
+        "editor.formatOnSave": true
+    },
+    "[go]": {
+        "editor.formatOnSave": false
+    },
+    "[cmake]": {
+        "editor.quickSuggestions": false
+    },
+    "workbench.colorTheme": "Default Light+",
+    "workbench.settings.editor": "json",
+    "workbench.settings.openDefaultSettings": false,
+    "protoc": {
+        "path": "C:/ProgramData/protoc/bin/protoc.exe",
+        "options": [
+            // "--proto_path=protos/v3",
+            // "--proto_path=protos/v2",
+            "--proto_path=${workspaceRoot}/libs/libcudata/proto"
+            // "--proto_path=${env.GOPATH}/src",
+            // "--java_out=gen/java"
+        ]
+    },
+    "editor.acceptSuggestionOnEnter": "off"
+}
