@@ -8,7 +8,11 @@ rem ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 rem ln -s ~/.dotfiles/gitexcludes ~/.gitexcludes
 rem ln -s ~/.dotfiles/vscode_user_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
-if exist %USERPROFILE$\.vim goto HAVE_DOT_VIM
+if exist %USERPROFILE%\AppData\Local\nvim goto HAVE_NVIM
+mklink /J %USERPROFILE%\AppData\Local\nvim %USERPROFILE%\.dotfiles\nvim
+:HAVE_NVIM
+
+if exist %USERPROFILE%\.vim goto HAVE_DOT_VIM
 mklink /J %USERPROFILE%\.vim %USERPROFILE%\.dotfiles\vim
 :HAVE_DOT_VIM
 
