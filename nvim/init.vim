@@ -6,6 +6,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes' " for visualstudio color theme.
 Plug 'rhysd/vim-clang-format'
+" Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'               " linting.
 call plug#end()
 
@@ -72,13 +73,18 @@ let g:airline_powerline_fonts = 0
 
 
 " ----------------------------------------------------------------------------
+" Plugin: ctrlpvim/ctlp.vim
+" ----------------------------------------------------------------------------
+
+
+" ----------------------------------------------------------------------------
 " Plugin: w0rp/ale
 " ----------------------------------------------------------------------------
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1 " enable integration with airline
-
+let g:ale_yaml_yamllint_options = '-d "{extends: relaxed, rules: {line-length: disabled}}"'
 
 " ----------------------------------------------------------------------------
 " Plugin: rhsyd/vim-clang-format
@@ -87,6 +93,13 @@ let g:clang_format#detect_style_file = 1   " use .clang-format file
 let g:clang_format#auto_format = 1         " format the current buffer on save.
 map <C-R><C-F> :ClangFormat<CR>
 imap <C-R><C-F> :ClangFormat<CR>
+
+" ----------------------------------------------------------------------------
+" Plugin: scrooloose/nerdtree
+" ----------------------------------------------------------------------------
+" Start automatically when opening a directory on startup.
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 
 " ----------------------------------------------------------------------------
