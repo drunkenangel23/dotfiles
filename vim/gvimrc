@@ -2,6 +2,7 @@ set columns=169
 set lines=49
 winpos 286 0
 set winaltkeys=yes
+set mouse=a
 
 "colorscheme darkblue
 colorscheme visualstudio
