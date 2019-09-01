@@ -1,0 +1,35 @@
+{
+    "debug.allowBreakpointsEverywhere": true,
+    "git.enabled": false,
+    "update.mode": "manual",
+    "workbench.editor.enablePreview": false,
+    "window.titleBarStyle": "native",
+    "editor.autoClosingBrackets": "never",
+    "editor.minimap.enabled": false,
+    "editor.parameterHints.enabled": false,
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "vim.useSystemClipboard": true,
+    "editor.formatOnSave": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[go]": {
+        "editor.formatOnSave": false
+    },
+    "[cmake]": {
+        "editor.quickSuggestions": false
+    },
+    "workbench.settings.editor": "json",
+    "workbench.settings.openDefaultSettings": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "cmake-tools-helper.cmake_download_path": "c:\\Users\\bkusy\\.vscode\\extensions\\maddouri.cmake-tools-helper-0.2.1\\cmake_download",
+    "cmake.configureOnOpen": true,
+    "C_Cpp.errorSquiggles": "Disabled"
+}

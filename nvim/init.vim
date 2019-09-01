@@ -6,7 +6,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes' " for visualstudio color theme.
 Plug 'rhysd/vim-clang-format'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'scrooloose/nerdtree'
+Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'               " linting.
 call plug#end()
 
@@ -38,8 +40,6 @@ endif
 " ----------------------------------------------------------------------------
 let g:netrw_banner = 0        " Hide useless banner at top.
 let g:netrw_liststyle = 1     " Detailed view
-
-" Start file explorer.
 map ,f :e <C-R>=expand("%:p:h")<CR>
 
 " ----------------------------------------------------------------------------

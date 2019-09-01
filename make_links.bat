@@ -21,11 +21,11 @@ mklink /J %USERPROFILE%\vimfiles %USERPROFILE%\.dotfiles\vim
 :HAVE_VIMFILES
 
 if exist %APPDATA%\Code\User\settings.json goto HAVE_VSCODE_SETTINGS
-mklink /J %APPDATA%\Code\User\settings.json %USERPROFILE%\.dotfiles\AppData\Code\User\settings.json
+mklink %APPDATA%\Code\User\settings.json %USERPROFILE%\.dotfiles\vscode\settings.json
 :HAVE_VSCODE_SETTINGS
 
-if exist %APPDATA%\Code\User\settings.json goto HAVE_VSCODE_KEYBINDINGS
-mklink /J %APPDATA%\Code\User\keybindings.json %USERPROFILE%\.dotfiles\AppData\Code\User\keybindings.json
+if exist %APPDATA%\Code\User\keybindings.json goto HAVE_VSCODE_KEYBINDINGS
+mklink %APPDATA%\Code\User\keybindings.json %USERPROFILE%\.dotfiles\vscode\keybindings.json
 :HAVE_VSCODE_KEYBINDINGS
 
 rem mintty is less than stellar and ignores the config file unless it has unix line endings.
