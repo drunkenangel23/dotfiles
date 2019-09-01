@@ -8,6 +8,11 @@ rem ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 rem ln -s ~/.dotfiles/gitexcludes ~/.gitexcludes
 rem ln -s ~/.dotfiles/vscode_user_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
+if exist %USERPROFILE%\.pycodestyle goto HAVE_PYCODESTYLE
+mklink %USERPROFILE%\.pycodestyle %USERPROFILE%\.dotfiles\pycodestyle
+:HAVE_PYCODESTYLE
+
+
 if exist %USERPROFILE%\AppData\Local\nvim goto HAVE_NVIM
 mklink /J %USERPROFILE%\AppData\Local\nvim %USERPROFILE%\.dotfiles\nvim
 :HAVE_NVIM

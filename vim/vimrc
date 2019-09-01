@@ -26,7 +26,8 @@ set wildmenu		            " display completion matches in a status line
 set ttimeout		            " time out for key codes
 set ttimeoutlen=100	            " wait up to 100ms after Esc for special key
 
-set display=truncate            " Show @@@ in the last line if it is truncated.
+" Doesn't work in older vims (<8.0)
+" set display=truncate            " Show @@@ in the last line if it is truncated.
 
 " Show a few lines of context around the cursor.  Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
@@ -54,13 +55,8 @@ inoremap <C-U> <C-G>u<C-U>
 " GUI (which always has colors).
 "if &t_Co > 2 || has("gui_running")
   " Revert with ":syntax off".
-"  set t_Co=256
-syntax on
-"  set background=dark
-"  colorscheme espresso
-"  highlight Normal ctermbg
-"  highlight nonText ctermbg
-
+  syntax on
+  " colorscheme distinguished
   " I like highlighting strings inside C comments.
   " Revert with ":unlet c_comment_strings".
 let c_comment_strings=1
